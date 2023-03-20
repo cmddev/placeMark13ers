@@ -1,0 +1,52 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Mountain</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Duration</th>
+      <th>Range</th>
+      <th>Category</th>
+      <th>Effort Level</th>
+      <th>Actions</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each collection.trails}}
+      <tr>
+        <td>
+          {{mountain}}
+        </td>
+        <td>
+          {{latitude}}
+        </td>
+        <td>
+          {{longitude}}
+        </td>
+        <td>
+          {{duration}}
+        </td>
+        <td>
+          {{range}}
+        </td>
+        <td>
+          {{category}}
+        </td>
+        <td>
+          {{effort}}
+        </td>
+        <td>
+          <a href="/trail/{{../collection._id}}/edittrail/{{_id}}" class="ui icon button">
+            <i class="fas fa-edit"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/collection/{{../collection._id}}/deletetrail/{{_id}}" class="ui icon button">
+            <i class="fas fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

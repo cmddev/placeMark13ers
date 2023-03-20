@@ -1,0 +1,87 @@
+{{> menu active="admin-dashboard"}}
+
+<section class="section">
+    <h1 class="title">User List</h1>
+   {{> list-user}}
+  
+</section>
+
+<div class="box box-link-hover-shadow has-background-warning-light">
+    <h2 class="title">
+      Application Analytics
+    </h2>
+    <table class="table is-fullwidth is-striped has-background-warning-light">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Users
+            </td>
+            <td>
+                {{users.length}}
+            </td>
+        </tr>
+        <tr>
+            <td> 
+                Collections
+            </td>
+            <td>
+                {{collections.length}}
+            </td>
+        </tr>
+        <tr>
+            <td> 
+                Trails
+            </td>
+            <td>
+               {{trails.length}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Average Collections Per User
+            </td>
+            <td>
+                {{results.averageCollectionsPerUser}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Average Trails Per User
+            </td>
+            <td>
+                {{results.averageTrailsPerUser}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Average Trails Per Collection
+            </td>
+            <td>
+                {{results.averageTrailsPerCollection}}
+            </td>
+        </tr>     
+        <tr>
+            <td>
+                Most Collections
+            </td>
+            <td>
+                {{results.mostCollections}}
+            </td>
+        </tr> 
+        <tr>
+            <td>
+                Least Collections 
+            </td>
+            <td>
+                {{results.leastCollections}}
+            </td>
+        </tr>
+    </tbody>
+  </div>
+
