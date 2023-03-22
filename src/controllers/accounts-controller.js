@@ -1,3 +1,8 @@
+/**
+ * Accounts Controller within the application
+ * @Author: Caroline Daly
+ */
+
 import { UserSpec, UserCredentialsSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
 

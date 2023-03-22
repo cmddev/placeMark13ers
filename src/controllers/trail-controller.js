@@ -1,3 +1,8 @@
+/**
+ * Trail Controller within the application
+ * @Author: Caroline Daly
+ */
+
 import { TrailSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
 
@@ -16,13 +21,13 @@ export const trailController = {
   },
 
   update: {
-    // validate: {
-    //   payload: TrailSpec,
-    //   options: { abortEarly: false },
-    //   failAction: function (request, h, error) {
-    //     return h.view("trail-view", { title: "Edit trail error", errors: error.details }).takeover().code(400);
-    //   },
-    // },
+    validate: {
+      payload: TrailSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("trail-view", { title: "Edit trail error", errors: error.details }).takeover().code(400);
+      },
+    },
     handler: async function (request, h) {
       const trailId = request.params.trailid;
       const collectionId = request.params.id;

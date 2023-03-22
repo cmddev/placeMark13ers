@@ -1,3 +1,8 @@
+/**
+ * Controller for Super User Admin Rights within the application
+ * @Author: Caroline Daly
+ */
+
 import { db } from "../models/db.js";
 
 export const superUserController = {
@@ -7,23 +12,12 @@ export const superUserController = {
             const allUsers = await db.userStore.getAllUsers();
             const allCollections = await db.collectionStore.getAllCollections();
             const allTrails = await db.trailStore.getAllTrails();
-            //   const numberOfTrails = await db.trailStore.numberOfTrails();
-            //   const numberOfCollections = await db.collectionStore.numberOfCollections();
-            //   const numberOfUsers = await db.userStore.numberOfUsers();
-
             const viewData = {
                 title: "SuperUser Dashboard",
                 users: allUsers,
                 collections: allCollections,
                 trails: allTrails,
-                // numberOfTrails : numberOfTrails,
-                // numberOfCollections : numberOfCollections,
-                // numberOfUsers : numberOfUsers,
             };
-            //   if (loggedInUser.email === "superuser@trailmark.com") {
-            //     return h.view("SuperUser-view", viewData);
-            //   }
-            // return h.redirect("/dashboard")
             return h.view("SuperUser-view", viewData);
         },
     },

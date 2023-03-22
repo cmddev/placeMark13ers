@@ -1,3 +1,8 @@
+/**
+ * Collection Controller within the application
+ * @Author: Caroline Daly
+ */
+
 import { TrailSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
 

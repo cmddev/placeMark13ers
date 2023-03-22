@@ -29,5 +29,6 @@ export const webRoutes = [
   { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },
 
   { method: "GET", path: "/superuser", config: superUserController.index},
+  { method: "GET", path: "/superuser-dashboard/deleteUser/{id}", config: superUserController.deleteUser},
 
 ];
