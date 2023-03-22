@@ -16,6 +16,9 @@
     "type": "git",
     "url": "git+https://github.com/wit-hdip-comp-sci-2021/playtime.git"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "keywords": [
     "node",
     "hapi"

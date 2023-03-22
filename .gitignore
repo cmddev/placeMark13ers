@@ -1,6 +1,7 @@
 # IDE
 .idea
 
+#comment to pick up changes
 # Logs
 logs
 *.log

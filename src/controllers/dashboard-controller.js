@@ -1,3 +1,8 @@
+/**
+ * Dashboard Controller within the application
+ * @Author: Caroline Daly
+ */
+
 import { CollectionSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
 

@@ -3,6 +3,7 @@ import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { collectionController } from "./controllers/collection-controller.js";
 import { trailController } from "./controllers/trail-controller.js";
+import { superUserController } from "./controllers/superuser-controller.js";
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -26,4 +27,8 @@ export const webRoutes = [
   { method: "POST", path: "/trail/{id}/updatetrail/{trailid}", config: trailController.update },
 
   { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },
+
+  { method: "GET", path: "/superuser", config: superUserController.index},
+  { method: "GET", path: "/superuser-dashboard/deleteUser/{id}", config: superUserController.deleteUser},
+
 ];

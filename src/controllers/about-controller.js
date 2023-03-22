@@ -1,3 +1,8 @@
+/**
+ * About Controller within the application
+ * @Author: Caroline Daly
+ */
+
 export const aboutController = {
   index: {
     handler: function (request, h) {
