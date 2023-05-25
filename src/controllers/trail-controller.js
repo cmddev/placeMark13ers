@@ -48,5 +48,5 @@ export const trailController = {
       // await db.trailStore.updateTrail(request.params.trailid, newTrail);
       return h.redirect(`/collection/${request.params.id}`);
     },
-  },
+  }
 };

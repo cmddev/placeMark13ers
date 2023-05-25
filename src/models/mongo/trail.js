@@ -9,6 +9,12 @@ const trailSchema = new Schema({
   range: String,
   category: String,
   effort: String,
+  images: [
+    {
+      img: String,
+      imgid: String,
+    },
+  ],
   collectionid: {
     type: Schema.Types.ObjectId,
     ref: "Collection",

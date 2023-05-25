@@ -5,6 +5,7 @@
 
 import { TrailSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
+import { imageStore } from "../models/image-store.js";
 
 export const collectionController = {
   index: {
@@ -52,4 +53,36 @@ export const collectionController = {
       return h.redirect(`/collection/${collection._id}`);
     },
   },
+
+  uploadImage: {
+    handler: async function(request, h) {
+      try {
+        const collection = await db.collectionStore.getCollectionById(request.params.id);
+        const file = request.payload.imagefile;
+        if (Object.keys(file).length > 0) {
+          const url = await imageStore.uploadImage(request.payload.imagefile);
+          collection.img = url;
+          db.collectionStore.updateCollection(collection);
+        }
+        return h.redirect(`/collection/${collection._id}`);
+      } catch (err) {
+        console.log(err);
+        return h.redirect(`/collection/${collection._id}`);
+      }
+    },
+    payload: {
+      multipart: true,
+      output: "data",
+      maxBytes: 209715200,
+      parse: true
+    }
+  },
+
+  deleteImage: {
+    handler: async function( request, h) {
+      const collection = await db.collectionStore.getCollectionById(request.params.id);
+      await db.imageStore.deleteImage(collection.imgid);
+      collection.img = undefined;
+    }
+  }
 };

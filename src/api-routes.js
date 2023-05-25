@@ -19,6 +19,8 @@ export const apiRoutes = [
   { method: "POST", path: "/api/collections/{id}/trails", config: trailApi.create },
   { method: "DELETE", path: "/api/trails", config: trailApi.deleteAll },
   { method: "DELETE", path: "/api/trails/{id}", config: trailApi.deleteOne },
+  { method: "POST", path: "/api/trails/{id}/uploadimage", config: trailApi.uploadImage },
+  { method: "DELETE", path: "/api/trails/{id}/deleteimage/{imgid}", config: trailApi.deleteImage },
 
   { method: "POST", path: "/api/users/authenticate", config: userApi.authenticate },
 ];

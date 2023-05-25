@@ -102,4 +102,57 @@ export const trailApi = {
     description: "Delete a trail",
     validate: { params: { id: IdSpec }, failAction: validationError },
   },
+
+  uploadImage: {
+    auth: {
+      strategy: "jwt",
+    },
+    handler: async function (request, h) {
+      try {
+        const trail = await  db.trailStore.getTrailById(request.params.id);
+        console.log("Returned",trail);
+        const file = request.payload.imagefile;
+        if (Object.keys(file).length > 0) {
+          const response = await imageStore.uploadImage(request.payload.imagefile);
+          trail.images.push({img : response.url,
+            imgid: response.public_id})
+          db.trailStore.updateTrail(trail._id, trail);
+        }
+        return h.response().code(200);
+      } catch (err) {
+        console.log(err);
+        return h.response().code(500);
+      }
+    },
+    tags: ["api"],
+    description: "Upload an image",
+    payload: {
+      multipart: true,
+      output: "data",
+      maxBytes: 209715200,
+      parse: true,
+    },
+  },
+
+  deleteImage: {
+    auth: {
+      strategy: "jwt",
+    },
+    handler: async function (request, h) {
+      try {
+        const trail = await db.trailStore.getTrailById(request.params.id);
+        await db.imageStore.deleteImage(request.params.imgid);
+        console.log("trail",trail.images)
+        trail.images = trail.images.filter((value) =>  value.imgid !== request.params.imgid );
+        console.log("AH",trail.images)
+        db.trailStore.updateTrail(trail._id, trail);
+        return h.response().code(200);
+      } catch (err) {
+        console.log(err);
+        return h.response().code(500);
+      }
+    },
+    tags: ["api"],
+    description: "Delete an image",
+  },
 };

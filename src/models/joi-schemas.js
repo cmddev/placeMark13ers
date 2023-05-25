@@ -30,11 +30,11 @@ export const TrailSpec = Joi.object()
         range: Joi.string().required().example("Front Range"),
         category: Joi.string().required().example("Class 1"),
         effort: Joi.string().required().example("Medium"),
-      //   images: Joi.array().items(Joi.object({
-      //     _id: IdSpec,
-      //     img: Joi.string(),
-      //     imgid: Joi.string(),
-      // })),
+        images: Joi.array().items(Joi.object({
+          _id: IdSpec,
+          img: Joi.string(),
+          imgid: Joi.string(),
+      })),
     collectionid: IdSpec,
   })
   .label("Trail");
@@ -51,6 +51,8 @@ export const CollectionSpec = Joi.object()
     title: Joi.string().required().example("Beethoven Sonatas"),
     userid: IdSpec,
     trails: TrailArraySpec,
+    img: Joi.string(),
+    imgid: Joi.string()
   })
   .label("Collection");
 

@@ -22,9 +22,12 @@ export const webRoutes = [
   { method: "GET", path: "/collection/{id}", config: collectionController.index },
   { method: "POST", path: "/collection/{id}/addtrail", config: collectionController.addTrail },
   { method: "GET", path: "/collection/{id}/deletetrail/{trailid}", config: collectionController.deleteTrail },
+  { method: "POST", path: "/collection/{id}/uploadimage", config: collectionController.uploadImage },
+  { method: "GET", path: "/collection/{id}/deleteimage", config: collectionController.deleteImage },
 
   { method: "GET", path: "/trail/{id}/edittrail/{trailid}", config: trailController.index },
   { method: "POST", path: "/trail/{id}/updatetrail/{trailid}", config: trailController.update },
+
 
   { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },
 

@@ -39,5 +39,14 @@ export const collectionMongoStore = {
 
   async deleteAllCollections() {
     await Collection.deleteMany({});
-  }
+  },
+
+  async updateCollection(updatedCollection) {
+    const collection = await Collection.findOne({ _id: updatedCollection._id });
+    collection.title = updatedCollection.title;
+    collection.img = updatedCollection.img;
+    collection.imgid = updatedCollection.imgid;
+    await collection.save();
+  },
+
 };

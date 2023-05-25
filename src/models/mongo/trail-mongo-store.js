@@ -48,6 +48,7 @@ export const trailMongoStore = {
     trailDoc.range = updatedTrail.range;
     trailDoc.category = updatedTrail.category;
     trailDoc.effort = updatedTrail.effort;
+    trailDoc.images = updatedTrail.images;
     await trailDoc.save();
   },
 };
